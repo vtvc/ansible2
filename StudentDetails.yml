@@ -1,0 +1,22 @@
+---
+- studentdetails:  
+    - name: divya
+      phno: 8989898998
+      course: devops
+      address: 
+        street: 1
+        pin: 5000072
+
+    - name: venkat1
+      phno: 8985656
+      course: devops
+      address: 
+        street: 1
+        pin: 5000072
+
+    - name: venkat2
+      phno: 8985656
+      course: devops4
+      address: 
+        street: 1
+        pin: 5000072

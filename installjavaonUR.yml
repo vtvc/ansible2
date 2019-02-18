@@ -1,0 +1,15 @@
+---
+- hosts: webservers
+  become: yes
+  tasks:
+  - name: install java on ubuntu
+    apt:
+      name: "{{myjavaonubuntu}}"
+      state: present
+    when: ansible_os_family =="Debian"
+
+  - name: install java on redhat
+    yum:
+      name: "{{myjavaonredhat}}"
+      state: present
+    when: ansible_os_family =="RedHat"

@@ -5,6 +5,19 @@
   - name: i want to know host name
     command:  hostname -f
     register: myresult
+
   - name: display  myresult
     debug:
       msg: "{{myresult}}"
+
+  - name: install git , if no error in first tasks
+    apt:
+      name: git
+      state: present
+    when:  myresult.stderr ==""
+    
+  - name: install tree, if  error in first tasks
+    apt:
+      name: tree
+      state: present
+    when: myresult.stderr !=""

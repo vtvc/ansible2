@@ -5,6 +5,7 @@
   - name: install git
     apt:
       namee: git
+    ignore_errors: yes
 
   - name: install tree
     apt:

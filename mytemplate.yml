@@ -7,15 +7,20 @@
     apt:
       name: apache2
       state: present
-
-  - name: start wenserver
-    service:
-      name: apache2
-      state:  started
+    notify: startwebserver
+ 
 
   - name: i want to copy index file into all nodes
     template:
       src: index.j2
       dest: /var/www/html/index.html
+    notify: startwebserver
+
+  handlers:
+  - name: startwebserver
+    service:
+      name: apache2
+      state:  started
+
 
     

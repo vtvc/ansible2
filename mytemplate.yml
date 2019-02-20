@@ -13,4 +13,9 @@
       name: apache2
       state:  started
 
+  - name: i want to copy index file into all nodes
+    template:
+      src: index.j2
+      dest: /var/www/html/index.html
+
     

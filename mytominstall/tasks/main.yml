@@ -1,2 +1,26 @@
 ---
 # tasks file for mytominstall
+- name: install tomcat
+  yum:
+   name: tomcat
+   state: present
+
+- name:  copy tom config file into all nodes
+  template:
+    src:  templates/mytomconfig.j2
+    dest: /usr/share/tomcat/conf/tomcat.conf
+  notify: starttomcat
+
+- name:  Install Admin Packages
+  yum:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - tomcat-webapps
+    - tomcat-admin-webapps
+
+- name: coy tom user file into all nodes
+  template:
+    src: templates/mytomuser.j2
+    dest: /usr/share/tomcat/conf/tomcat-users.xml
+  notify: restarttomcat

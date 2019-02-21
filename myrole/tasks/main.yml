@@ -1,2 +1,6 @@
 ---
 # tasks file for myrole
+
+- name: install git
+  apt:
+    name: git

@@ -29,4 +29,4 @@
   get_url:
     url: https://s3.amazonaws.com/maha4iac/mahaLogin.war
     dest: /usr/share/tomcat/webapps/mahaLogin.war
-  force_basic_auth: yes
+    force_basic_auth: yes
